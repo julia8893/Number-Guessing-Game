@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/GameFragment">
+
+    <fragment
+        android:id="@+id/GameFragment"
+        android:name="at.ac.fhcampuswien.numberguessinggame.GameFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_GameFragment_to_GameWonFragment"
+            app:destination="@id/GameWonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/GameWonFragment"
+        android:name="at.ac.fhcampuswien.numberguessinggame.GameWonFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_game_won">
+        <action
+            android:id="@+id/action_GameWonFragment_to_GameFragment"
+            app:destination="@id/GameFragment" />
+    </fragment>
+</navigation>
