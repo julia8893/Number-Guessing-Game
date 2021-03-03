@@ -31,24 +31,6 @@ class GameViewModel : ViewModel() {
 
     init {
         createRandomNumbers()
-
-        /* Solution if only one number gets forwarded
-
-        var num2 = 4127
-
-        // create new array list to store single numbers
-        var numArray2: ArrayList<Int> = arrayListOf<Int>()
-
-        // uses modulo to get single numbers
-        while (num2 > 0) {
-            numArray2.add(num2 % 10)
-            num2 /= 10
-        }
-        // organizes array in reverse order to get original order
-        numArray2.reverse()
-
-        //Log.i("GameViewModel", "Nums2: $numArray2")
-        */
     }
 
     private fun createRandomNumbers() {
@@ -127,23 +109,11 @@ class GameViewModel : ViewModel() {
         _guessedCorrectlyLD.value = guessedCorrectly.toString()
         _correctPositionLD.value = correctPosition.toString()
 
-
         if (correctPosition == 4) {
             _eventGameFinish.value = true
         }
 
         Log.i("GameViewModel", "GuessedCorrectlyLD: ${guessedCorrectlyLD.value}")
         Log.i("GameViewModel", "CorrectPositionLD: ${correctPositionLD.value}")
-
-        //Log.i("GameViewModel", "GuessedCorrectly: $guessedCorrectly")
-        //Log.i("GameViewModel", "CorrectPosition: $correctPosition")
-
     }
 }
-
-/*
-//numbers.addAll(listOf(1, 2, 3, 6))
-Log.i("GameViewModel", "${numbers[0]}")
-Log.i("GameViewModel", "${numbers[1]}")
-Log.i("GameViewModel", "${numbers[2]}")
-Log.i("GameViewModel", "${numbers[3]}")*/

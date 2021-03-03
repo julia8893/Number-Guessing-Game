@@ -21,7 +21,6 @@ class GameFragment : Fragment() {
 
     private lateinit var viewModel: GameViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,7 +58,6 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_guess).setOnClickListener {
-            //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 
             val firstNum = view.findViewById<EditText>(R.id.editTextNumber1).text.toString()
             val secondNum = view.findViewById<EditText>(R.id.editTextNumber2).text.toString()
