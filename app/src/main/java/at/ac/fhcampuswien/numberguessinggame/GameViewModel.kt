@@ -31,6 +31,24 @@ class GameViewModel : ViewModel() {
 
     init {
         createRandomNumbers()
+
+        /* Solution if only one number gets forwarded
+
+        var num2 = 4127
+
+        // create new array list to store single numbers
+        var numArray2: ArrayList<Int> = arrayListOf<Int>()
+
+        // uses modulo to get single numbers
+        while (num2 > 0) {
+            numArray2.add(num2 % 10)
+            num2 /= 10
+        }
+        // organizes array in reverse order to get original order
+        numArray2.reverse()
+
+        //Log.i("GameViewModel", "Nums2: $numArray2")
+        */
     }
 
     private fun createRandomNumbers() {
@@ -88,10 +106,20 @@ class GameViewModel : ViewModel() {
                 correctPosition += 1
             }
         }
+
+        // array for already found numbers
+        val foundNumbers: ArrayList<Int> = arrayListOf<Int>()
+
         // check guessed correctly
         for (item in numbersGuessed) {
-            if (generatedNumbers.value!!.contains(item)) {
-                guessedCorrectly += 1
+
+            // exclude already guessed correctly from check
+            if (!(foundNumbers.contains(item))) {
+                // if guessed number is in generated numbers, add to found and add +1 to counter
+                if (generatedNumbers.value!!.contains(item)) {
+                    foundNumbers.add(item)
+                    guessedCorrectly += 1
+                }
             }
         }
         _message.value = "${guessedCorrectly}:${correctPosition}"
@@ -107,8 +135,8 @@ class GameViewModel : ViewModel() {
         Log.i("GameViewModel", "GuessedCorrectlyLD: ${guessedCorrectlyLD.value}")
         Log.i("GameViewModel", "CorrectPositionLD: ${correctPositionLD.value}")
 
-        Log.i("GameViewModel", "GuessedCorrectly: $guessedCorrectly")
-        Log.i("GameViewModel", "CorrectPosition: $correctPosition")
+        //Log.i("GameViewModel", "GuessedCorrectly: $guessedCorrectly")
+        //Log.i("GameViewModel", "CorrectPosition: $correctPosition")
 
     }
 }

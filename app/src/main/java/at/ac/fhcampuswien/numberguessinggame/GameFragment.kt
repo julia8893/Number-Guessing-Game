@@ -52,9 +52,7 @@ class GameFragment : Fragment() {
             }
         })
 
-
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,10 +61,10 @@ class GameFragment : Fragment() {
         view.findViewById<Button>(R.id.button_guess).setOnClickListener {
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 
-            val firstNum = view.findViewById<EditText>(R.id.editTextNumberDecimal1).text.toString()
-            val secondNum = view.findViewById<EditText>(R.id.editTextNumberDecimal2).text.toString()
-            val thirdNum = view.findViewById<EditText>(R.id.editTextNumberDecimal3).text.toString()
-            val fourthNum = view.findViewById<EditText>(R.id.editTextNumberDecimal4).text.toString()
+            val firstNum = view.findViewById<EditText>(R.id.editTextNumber1).text.toString()
+            val secondNum = view.findViewById<EditText>(R.id.editTextNumber2).text.toString()
+            val thirdNum = view.findViewById<EditText>(R.id.editTextNumber3).text.toString()
+            val fourthNum = view.findViewById<EditText>(R.id.editTextNumber4).text.toString()
             val firstNumInt = firstNum.toInt()
             val secondNumInt = secondNum.toInt()
             val thirdNumInt = thirdNum.toInt()
